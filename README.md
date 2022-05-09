@@ -70,10 +70,10 @@ Alternatively you can do the following:
 * Create a discord bot [here](https://discord.com/developers/applications)
 * Get your bot token
 * Invite your bot on servers using the following invite:
-  https://discord.com/oauth2/authorize?&client_id=YOUR_APPLICATION_ID_HERE&scope=bot+applications.commands&permissions=PERMISSIONS (
+  https://discord.com/oauth2/authorize?&client_id=973156843960545313&scope=bot+applications.commands&permissions=431040621682 (
   Replace `YOUR_APPLICATION_ID_HERE` with the application ID and replace `PERMISSIONS` with the required permissions
   your bot needs that it can be get at the bottom of a this
-  page https://discord.com/developers/applications/YOUR_APPLICATION_ID_HERE/bot)
+  page https://discord.com/developers/applications/973156843960545313/bot)
 
 ## How to set up
 
