@@ -1,8 +1,10 @@
 from enum import Enum, auto
 
+
 class QuestionType(Enum):
     NORMAL = auto()
     DAILY_DOUBLE = auto()
+
 
 class Question:
     def __init__(self, question: str, answer: str, question_type: QuestionType, value: int):

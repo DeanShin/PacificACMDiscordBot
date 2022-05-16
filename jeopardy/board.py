@@ -1,5 +1,6 @@
 from question import Question
 
+
 class Board:
     def __init__(self, questions: [[Question]], row_values: [], col_categories: []):
         if len(row_values) is not len(questions):
@@ -16,7 +17,7 @@ class Board:
         self.col_categories = col_categories
 
     def format_board(self) -> str:
-        return ""
+        raise Exception("Not implemented yet.")
 
     def get_question(self, position: str) -> Question:
         raise Exception("Not implemented yet.")
