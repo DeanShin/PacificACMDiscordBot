@@ -1,6 +1,6 @@
 {
   "prefix": "!==",
-  "token": TOKEN_HERE,
+  "token": "TOKEN_HERE",
   "permissions": "431040621634",
   "application_id": "973156843960545313",
   "owners": [
