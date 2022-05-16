@@ -18,10 +18,23 @@ from helpers import checks
 #         super().__init__()
 #         self.add_item(JeopardyGridRow())
 
+import asyncio
+import random
+
+from enum import Enum
+
+class BotState(Enum):
+    SETUP = 1
+    SELECTION = 2
+    QUESTION = 3
+
 
 class Jeopardy(commands.Cog, name="jeopardy-slash"):
     def __init__(self, bot):
         self.bot = bot
+        self.stateLock = asyncio.Lock()
+        self.commandLock = asyncio.Lock()
+        self.state =  BotState(1)
 
     @commands.slash_command(
         name="showgrid",
@@ -29,6 +42,13 @@ class Jeopardy(commands.Cog, name="jeopardy-slash"):
     )
     @checks.not_blacklisted()
     async def showgrid(self, interaction: ApplicationCommandInteraction):
+        #async example
+        async with self.stateLock:
+            self.cState = random.choice(list(BotState))
+
+
+
+
         row = disnake.ui.ActionRow()
         row.add_button(label="option1")
         row.add_button(label="option2")
