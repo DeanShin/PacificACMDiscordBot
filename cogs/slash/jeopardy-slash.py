@@ -20,13 +20,13 @@ from helpers import checks
 
 import asyncio
 import random
-
-from enum import Enum
+import yaml
+from enum import Enum, auto
 
 class BotState(Enum):
-    SETUP = 1
-    SELECTION = 2
-    QUESTION = 3
+    SETUP = auto()
+    SELECTION = auto()
+    QUESTION = auto()
 
 
 class Jeopardy(commands.Cog, name="jeopardy-slash"):
@@ -36,9 +36,42 @@ class Jeopardy(commands.Cog, name="jeopardy-slash"):
         self.commandLock = asyncio.Lock()
         self.state =  BotState(1)
 
+        
+
+
+
+    @commands.slash_command(
+        name="loadyaml",
+        description="load the yaml file.",
+        guild_ids=[250465040921133057] 
+    )
+    @checks.not_blacklisted()
+    async def loadyaml(self, interaction: ApplicationCommandInteraction):
+
+        #load in board data
+        stream = open("ymls/catagories.yml", "r") 
+        catagories = yaml.load(stream)
+
+        stream = open("ymls/questions.yml", "r")
+        questions = yaml.load(stream)
+
+        print(repr(questions))
+
+        stream = open("ymls/answers.yml", "r")
+        answers = yaml.load(stream)
+
+        embed = disnake.Embed(
+            title="yamls loaded",
+            description=f"All files were read in successfully",
+            color=0x9C84EF
+        )
+
+        await interaction.send(embed=embed)
+
     @commands.slash_command(
         name="showgrid",
-        description="Show the Jeopardy Grid."
+        description="Show the Jeopardy Grid.",
+        guild_ids=[250465040921133057]
     )
     @checks.not_blacklisted()
     async def showgrid(self, interaction: ApplicationCommandInteraction):
