@@ -1,2 +1,4 @@
-aiohttp
-disnake
+- aiohttp
+- disnake
+- pretty table
+   -e git://github.com/jazzband/prettytable.git#egg=prettytable
