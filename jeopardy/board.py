@@ -1,4 +1,4 @@
-from question import Question
+from jeopardy.question import Question, QuestionType
 
 
 class Board:
@@ -9,7 +9,7 @@ class Board:
         elif len(col_categories) is not len(questions[0]):
             raise Exception(f"Invalid input: was provided {len(col_categories)} column categories, but found "
                             f"{len(questions[0])} columns of questions")
-        # Code to make Dustin mad
+        # Code to make Dustin happy
         elif len(set([len(row) for row in questions])) != 1:
             raise Exception(f"Invalid input: questions matrix does has uneven number of rows.")
         self.questions = questions
@@ -24,3 +24,8 @@ class Board:
 
     def consume_question(self, position: str):
         raise Exception("Not implemented yet.")
+
+
+def __main__():
+    q = Question("Hello", "Hi", QuestionType.NORMAL, 500)
+    print(q)

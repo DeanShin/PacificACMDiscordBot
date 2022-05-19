@@ -2,7 +2,9 @@ from disnake import User
 
 
 class Team:
-    def __init__(self, name: str, users: [User], points: int = 0):
+    def __init__(self, name: str, users: [User] = None, points: int = 0):
+        if users is None:
+            users = []
         self._name = name
         self._users = users
         self._points = points
@@ -30,3 +32,8 @@ class Team:
     @points.setter
     def points(self, value):
         self._points = value
+
+    def __str__(self):
+        endl = "\n"
+        return f'{self._name}{endl}' \
+               f'{[f"- {user}{endl}" for user in self.users]}'
